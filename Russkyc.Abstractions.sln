@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Russkyc.Abstractions", "Russkyc.Abstractions\Russkyc.Abstractions.csproj", "{E8C6743C-A72A-4FD2-9490-9C1864F51D00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractionsTest", "AbstractionsTest\AbstractionsTest.csproj", "{6A31143E-3AA5-4922-B307-2F5D56ABB8EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8C6743C-A72A-4FD2-9490-9C1864F51D00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8C6743C-A72A-4FD2-9490-9C1864F51D00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8C6743C-A72A-4FD2-9490-9C1864F51D00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8C6743C-A72A-4FD2-9490-9C1864F51D00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A31143E-3AA5-4922-B307-2F5D56ABB8EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A31143E-3AA5-4922-B307-2F5D56ABB8EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A31143E-3AA5-4922-B307-2F5D56ABB8EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A31143E-3AA5-4922-B307-2F5D56ABB8EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
