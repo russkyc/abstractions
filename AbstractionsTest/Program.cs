@@ -10,44 +10,45 @@ namespace AbstractionsTest
         static void Main()
         {
             Console.WriteLine("Hello World!");
-            TestRepo t = new TestRepo();
-
-            Console.WriteLine(t.GetCollection().Count);
-            t.Insert(
+            Console.WriteLine(TestRepo.Instance.GetCollection().Count);
+            TestRepo.Instance.Insert(
                 new Person
                 {
                     Name = "Russell",
                     Info = "Russkyc"
                 });
-            t.Insert(
+            TestRepo.Instance.Insert(
                 new Person
                 {
                     Name = "Russell",
                     Info = "Russky42"
                 });
-            t.Insert(
+            TestRepo.Instance.Insert(
                 new Person
                 {
                     Name = "Cronica",
                     Info = "Cronicles"
                 });
             
-            t.GetCollection().ToList().ForEach( p => Console.WriteLine($"{p.Name}, {p.Info}"));
-            t.Update(p => p.Name.Contains("Russell"), p => p.Name = "Test");
-            Console.WriteLine(t.GetCollection().Count);
-            t.Delete(p => p.Name.Contains("e"));
-            Console.WriteLine(t.GetCollection().Count);
-            t.GetCollection().ToList().ForEach( p => Console.WriteLine($"{p.Name}, {p.Info}"));
+            TestRepo.Instance.GetCollection().ToList().ForEach( p => Console.WriteLine($"{p.Name}, {p.Info}"));
+            TestRepo.Instance.Update(p => p.Name.Contains("Russell"), p => p.Name = "Test");
+            Console.WriteLine(TestRepo.Instance.GetCollection().Count);
+            TestRepo.Instance.Delete(p => p.Name.Contains("e"));
+            Console.WriteLine(TestRepo.Instance.GetCollection().Count);
+            TestRepo.Instance.GetCollection().ToList().ForEach( p => Console.WriteLine($"{p.Name}, {p.Info}"));
         }
     }
 }
 
 class TestRepo : IRepository<Person>
 {
+    private static object _lock;
+    private static IRepository<Person> _instance;
     private IList<Person> _persons;
 
     public TestRepo()
     {
+        _lock = new object();
         _persons = new List<Person>();
     }
 
@@ -90,9 +91,23 @@ class TestRepo : IRepository<Person>
         return true;
     }
 
-    public IRepository<Person> GetInstance()
+    public static IRepository<Person> Instance
     {
-        throw new NotImplementedException();
+        get
+        {
+            if (_instance is null)
+            {
+                lock (_lock)
+                {
+                    if (_instance is null)
+                    {
+                        _instance = new TestRepo();
+                    }
+                }
+            }
+
+            return _instance;
+        }
     }
 }
 

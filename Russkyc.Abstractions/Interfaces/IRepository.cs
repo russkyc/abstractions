@@ -12,6 +12,5 @@ namespace Russkyc.Abstractions.Interfaces
         ICollection<T> GetCollection();
         bool Update(Func<T, bool> filter, Action<T> action);
         bool Delete(Func<T, bool> filter);
-        IRepository<T> GetInstance();
     }
 }
