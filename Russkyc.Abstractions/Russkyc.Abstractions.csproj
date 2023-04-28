@@ -4,11 +4,10 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <PackageIcon>Resources\Images\Russkyc.png</PackageIcon>
         <Title>Core Abstractions</Title>
-        <Description></Description>
         <Copyright>Russell Camo 2023</Copyright>
         <Authors>Russell Camo</Authors>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>1.0.4</Version>
+        <Version>1.0.5</Version>
         <LangVersion>8</LangVersion>
     </PropertyGroup>
     <PropertyGroup>
