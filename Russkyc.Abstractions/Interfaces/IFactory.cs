@@ -25,6 +25,5 @@ namespace Russkyc.Abstractions.Interfaces
     public interface IFactory<T>
     {
         public T Create();
-        public T CreateInstance();
     }
 }
