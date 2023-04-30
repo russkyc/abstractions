@@ -20,11 +20,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
 namespace Russkyc.Abstractions.Interfaces
 {
-    public interface IFactory<T> where T : new()
+    public interface IDbAccessAsync
     {
-        public T Create();
-        public T Create(params object[] values);
+        Task<bool> Add<T>(T item);
+        Task<bool> AddMultiple<T>(ICollection<T> item);
+        Task<T> Get<T>(Func<T, bool> filter);
+        Task<ICollection<T>> GetMultiple<T>(Func<T, bool> filter);
+        Task<ICollection<T>> GetCollection<T>();
+        Task<bool> Update<T>(Func<T, bool> filter, Action<T> action);
+        Task<bool> Update<T>(Func<T, bool> filter, T item);
+        Task<bool> Delete<T>(Func<T, bool> filter);
     }
 }

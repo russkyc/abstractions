@@ -8,7 +8,7 @@ namespace Russkyc.Abstractions.Interfaces
         bool Insert(T item);
         bool Insert(ICollection<T> item);
         T Get(Func<T, bool> filter);
-        ICollection<T> GetAll(Func<T, bool> filter);
+        ICollection<T> GetMultiple(Func<T, bool> filter);
         ICollection<T> GetCollection();
         bool Update(Func<T, bool> filter, Action<T> action);
         bool Delete(Func<T, bool> filter);

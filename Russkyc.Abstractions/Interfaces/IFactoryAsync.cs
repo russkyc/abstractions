@@ -20,11 +20,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System.Threading.Tasks;
+
 namespace Russkyc.Abstractions.Interfaces
 {
-    public interface IFactory<T> where T : new()
+    public interface IFactoryAsync<T>
     {
-        public T Create();
-        public T Create(params object[] values);
+        public Task<T> Create();
+        public Task<T> Create(params object[] values);
     }
 }
