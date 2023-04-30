@@ -22,7 +22,7 @@
 
 namespace Russkyc.Abstractions.Interfaces
 {
-    public interface IFactory<T> where T : new()
+    public interface IFactory<T>
     {
         public T Create();
         public T Create(params object[] values);
