@@ -5,8 +5,8 @@ namespace Russkyc.Abstractions.Interfaces
 {
     public interface IRepository<T>
     {
-        bool Insert(T item);
-        bool Insert(ICollection<T> item);
+        bool Add(T item);
+        bool AddMultiple(ICollection<T> item);
         T Get(Func<T, bool> filter);
         ICollection<T> GetMultiple(Func<T, bool> filter);
         ICollection<T> GetCollection();
