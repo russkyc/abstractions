@@ -10,8 +10,10 @@ namespace Russkyc.Abstractions.Interfaces
         T Get<T>(Func<T, bool> filter) where T : new();
         ICollection<T> GetMultiple<T>(Func<T, bool> filter) where T : new();
         ICollection<T> GetCollection<T>() where T : new();
-        bool Update<T>(Func<T, bool> filter, Action<T> action) where T : new();
+        bool Update<T>(Func<T, bool> filter, Func<T,T> action) where T : new();
         bool Update<T>(Func<T, bool> filter, T item) where T : new();
+        bool Update<T>(T item) where T : new();
         bool Delete<T>(Func<T, bool> filter) where T : new();
+        bool Delete<T>(object id) where T : new();
     }
 }
