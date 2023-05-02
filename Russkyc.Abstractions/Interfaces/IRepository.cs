@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Russkyc.Abstractions.Interfaces
 {
-    public interface IRepository<T>
+    public interface IRepository<T> where T : new()
     {
         bool Add(T item);
         bool AddMultiple(ICollection<T> item);

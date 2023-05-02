@@ -28,13 +28,13 @@ namespace Russkyc.Abstractions.Interfaces
 {
     public interface IDbAccessAsync
     {
-        Task<bool> Add<T>(T item);
-        Task<bool> AddMultiple<T>(ICollection<T> item);
-        Task<T> Get<T>(Func<T, bool> filter);
-        Task<ICollection<T>> GetMultiple<T>(Func<T, bool> filter);
-        Task<ICollection<T>> GetCollection<T>();
-        Task<bool> Update<T>(Func<T, bool> filter, Action<T> action);
-        Task<bool> Update<T>(Func<T, bool> filter, T item);
-        Task<bool> Delete<T>(Func<T, bool> filter);
+        Task<bool> Add<T>(T item) where T : new();
+        Task<bool> AddMultiple<T>(ICollection<T> item) where T : new();
+        Task<T> Get<T>(Func<T, bool> filter) where T : new();
+        Task<ICollection<T>> GetMultiple<T>(Func<T, bool> filter) where T : new();
+        Task<ICollection<T>> GetCollection<T>() where T : new();
+        Task<bool> Update<T>(Func<T, bool> filter, Action<T> action) where T : new();
+        Task<bool> Update<T>(Func<T, bool> filter, T item) where T : new();
+        Task<bool> Delete<T>(Func<T, bool> filter) where T : new();
     }
 }

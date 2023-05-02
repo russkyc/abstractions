@@ -5,13 +5,13 @@ namespace Russkyc.Abstractions.Interfaces
 {
     public interface IDbAccess
     {
-        bool Add<T>(T item);
-        bool AddMultiple<T>(ICollection<T> item);
-        T Get<T>(Func<T, bool> filter);
-        ICollection<T> GetMultiple<T>(Func<T, bool> filter);
-        ICollection<T> GetCollection<T>();
-        bool Update<T>(Func<T, bool> filter, Action<T> action);
-        bool Update<T>(Func<T, bool> filter, T item);
-        bool Delete<T>(Func<T, bool> filter);
+        bool Add<T>(T item) where T : new();
+        bool AddMultiple<T>(ICollection<T> item) where T : new();
+        T Get<T>(Func<T, bool> filter) where T : new();
+        ICollection<T> GetMultiple<T>(Func<T, bool> filter) where T : new();
+        ICollection<T> GetCollection<T>() where T : new();
+        bool Update<T>(Func<T, bool> filter, Action<T> action) where T : new();
+        bool Update<T>(Func<T, bool> filter, T item) where T : new();
+        bool Delete<T>(Func<T, bool> filter) where T : new();
     }
 }

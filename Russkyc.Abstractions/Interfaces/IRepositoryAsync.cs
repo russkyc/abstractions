@@ -25,7 +25,7 @@ using System.Collections.Generic;
 
 namespace Russkyc.Abstractions.Interfaces
 {
-    public interface IRepositoryAsync<T>
+    public interface IRepositoryAsync<T> where T : new()
     {
         bool Add(T item);
         bool AddMultiple(ICollection<T> item);

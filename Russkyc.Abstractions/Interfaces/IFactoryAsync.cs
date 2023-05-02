@@ -24,7 +24,7 @@ using System.Threading.Tasks;
 
 namespace Russkyc.Abstractions.Interfaces
 {
-    public interface IFactoryAsync<T>
+    public interface IFactoryAsync<T> where T : new()
     {
         public Task<T> Create();
         public Task<T> Create(params object[] values);
