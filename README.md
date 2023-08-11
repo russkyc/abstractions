@@ -1,7 +1,16 @@
 ﻿<h2 align="center" style="margin: 50px;">Russkyc.Abstractions</h3>
 
 <p align="center">
-A Collection of Interfaces and Abstractions for .NET
+    <a href="https://www.nuget.org/packages/Russkyc.Abstractions">
+        <img src="https://img.shields.io/nuget/v/Russkyc.Abstractions?color=1f72de" alt="Nuget">
+    </a>
+    <a href="#">
+        <img src="https://img.shields.io/badge/-.NET%20Standard%202.0-blueviolet?color=1f72de&label=NET" alt="">
+    </a>
+</p>
+
+<p align="center">
+<a href="https://www.nuget.org/packages/Russkyc.Abstractions">Russkyc.Abstractions</a> is a collection of Interfaces and Abstractions for .NET
 </p>
 
 ### Abstractions
