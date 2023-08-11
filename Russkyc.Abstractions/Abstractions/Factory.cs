@@ -20,13 +20,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System.Threading.Tasks;
+using System;
+using Russkyc.Abstractions.Interfaces;
 
-namespace Russkyc.Abstractions.Interfaces
+namespace Russkyc.Abstractions.Abstractions
 {
-    public interface IFactoryAsync<T> where T : new()
+    public abstract class Factory<T> : IFactory<T> where T : class
     {
-        public Task<T> Create();
-        public Task<T> Create(params object[] values);
+        public T Create(Action<T> builder = null)
+        {
+            var entity = Activator.CreateInstance(typeof(T),true) as T;
+            builder?.Invoke(entity);
+            return entity;
+        }
     }
 }

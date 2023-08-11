@@ -20,11 +20,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
+
 namespace Russkyc.Abstractions.Interfaces
 {
-    public interface IFactory<T> where T : new()
+    public interface IFactory<T>
     {
-        public T Create();
-        public T Create(params object[] values);
+        public T Create(Action<T> builder = null);
     }
 }

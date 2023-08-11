@@ -22,21 +22,22 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Russkyc.Abstractions.Interfaces
 {
     public interface IDbAccessAsync
     {
-        Task<bool> Add<T>(T item) where T : new();
-        Task<bool> AddMultiple<T>(ICollection<T> item) where T : new();
-        Task<T> Get<T>(Func<T, bool> filter) where T : new();
-        Task<ICollection<T>> GetMultiple<T>(Func<T, bool> filter) where T : new();
-        Task<ICollection<T>> GetCollection<T>() where T : new();
-        Task<bool> Update<T>(Func<T, bool> filter, Func<T,T> action) where T : new();
-        Task<bool> Update<T>(Func<T, bool> filter, T item) where T : new();
-        Task<bool> Update<T>(T item) where T : new();
-        Task<bool> Delete<T>(Func<T, bool> filter) where T : new();
-        Task<bool> Delete<T>(object id) where T : new();
+        Task<bool> Add<T>(T item) where T : class, new();
+        Task<bool> AddMultiple<T>(ICollection<T> item) where T : class, new();
+        Task<T> Get<T>(Expression<Func<T, bool>> filter) where T : class, new();
+        Task<ICollection<T>> GetMultiple<T>(Expression<Func<T, bool>> filter) where T : class, new();
+        Task<ICollection<T>> GetCollection<T>() where T : class, new();
+        Task<bool> Update<T>(Expression<Func<T, bool>> filter, Expression<Func<T,T>> action) where T : class, new();
+        Task<bool> Update<T>(Expression<Func<T, bool>> filter, T item) where T : class, new();
+        Task<bool> Update<T>(T item) where T : class, new();
+        Task<bool> Delete<T>(Expression<Func<T, bool>> filter) where T : class, new();
+        Task<bool> Delete<T>(object id) where T : class, new();
     }
 }
