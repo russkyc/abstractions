@@ -1,6 +1,8 @@
 ﻿<h2 align="center" style="margin: 50px;">Russkyc.Abstractions</h3>
 
+<p align="center">
 A Collection of Interfaces and Abstractions for .NET
+</p>
 
 ### Abstractions
 - _`Factory<T>`_ - A generic implementation of a Factory class.
